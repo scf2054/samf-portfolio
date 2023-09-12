@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent, ref, type Ref } from 'vue';
+import router from '../router/index';
 
 interface Route {
   readonly title: string;
@@ -9,25 +10,23 @@ interface Route {
 
 export default defineComponent({
   name: 'sidebar',
-  // props: {
-
-  // },
   emits: [],
   setup() {
-    const routes: Route[] = [
-      // {
-      //   title: 'Profile',
-      //   route: '/profile',
-      //   icon: 
-      // }
-    ]
+    return {
+      routes: router.getRoutes()
+    }
   }
 })
 </script>
 <template>
   <div class="sidebar-wrapper">
     <div class="sidebar">
-
+      <div class="column routes">
+        <div class="route" v-for="route of routes">
+          <font-awesome-icon :icon="route.meta.icon" />
+          <span>{{ route.name }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>

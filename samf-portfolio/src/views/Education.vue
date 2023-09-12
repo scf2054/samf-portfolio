@@ -2,13 +2,11 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  setup() {
-    
-  }
+
 })
 </script>
 <template>
-  Profile
+  Education
 </template>
-<style scoped>
+<style>
 </style>
