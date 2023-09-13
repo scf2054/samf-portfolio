@@ -1,19 +1,19 @@
 <script lang="ts">
 import { defineComponent, ref, type Ref } from 'vue';
 import router from '../router/index';
-
-interface Route {
-  readonly title: string;
-  readonly route: string;
-  readonly icon: string;
-}
+import type { RouteRecordRaw } from 'vue-router';
 
 export default defineComponent({
   name: 'sidebar',
   emits: [],
   setup() {
+    const clickRoute = (route: RouteRecordRaw) => {
+      router.push(route.path);
+    }
+
     return {
-      routes: router.getRoutes()
+      routes: router.getRoutes(),
+      clickRoute
     }
   }
 })
@@ -22,7 +22,7 @@ export default defineComponent({
   <div class="sidebar-wrapper">
     <div class="sidebar">
       <div class="column routes">
-        <div class="route" v-for="route of routes">
+        <div class="route" v-for="route of routes" @click="clickRoute(route)">
           <font-awesome-icon :icon="route.meta.icon" />
           <span>{{ route.name }}</span>
         </div>
@@ -43,7 +43,15 @@ export default defineComponent({
     background-color: var(--color-3);
     width: 100%;
     height: 100%;
-    padding: 2rem
+
+    padding: 2rem;
+
+    .routes {
+      .route:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    }
   }
 }
 </style>

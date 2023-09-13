@@ -2,14 +2,14 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'profile',
+  name: 'projects',
   setup() {
     
   }
 })
 </script>
 <template>
-  Profile
+  Projects
 </template>
-<style scoped>
+<style posted>
 </style>

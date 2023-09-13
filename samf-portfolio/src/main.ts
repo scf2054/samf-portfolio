@@ -6,11 +6,18 @@ import router from './router'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUser, faSchool } from '@fortawesome/free-solid-svg-icons';
+import * as icons from '@fortawesome/free-solid-svg-icons';
 
 import './assets/main.css';
 
-library.add(faUser, faSchool);
+library.add(
+  icons.faUser,
+  icons.faSchool,
+  icons.faBriefcase,
+  icons.faComputer,
+  icons.faHandshake,
+  icons.faBars
+);
 
 const app = createApp(App)
 
@@ -18,3 +25,4 @@ app.use(router)
 app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.mount('#app')
+router.push({ path: 'profile' })

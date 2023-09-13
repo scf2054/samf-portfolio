@@ -2,14 +2,14 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'profile',
+  name: 'employment-history',
   setup() {
-    
+
   }
 })
 </script>
 <template>
-  Profile
+Employee History
 </template>
-<style scoped>
+<style posted>
 </style>
