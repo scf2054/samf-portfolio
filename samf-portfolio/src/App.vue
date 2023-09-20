@@ -6,7 +6,7 @@ import Topbar from './components/Topbar.vue';
 </script>
 
 <template>
-  <div class="row">
+    <div class="row" style="height: 100%">
     <Sidebar />
     <div class="column">
       <Topbar />

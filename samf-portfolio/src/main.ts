@@ -1,4 +1,4 @@
-import './assets/main.css'
+import './assets/styles/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -7,8 +7,6 @@ import router from './router'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import * as icons from '@fortawesome/free-solid-svg-icons';
-
-import './assets/main.css';
 
 library.add(
   icons.faUser,

@@ -24,9 +24,13 @@ export default defineComponent({
         overwrite: 'https://www.linkedin.com/sam-frost'
       }
     ]);
+    const skills: Ref<string[]> = ref([
+      "Javascript", "Typescript", "Version Control", "Git", "Angular", "Vue", "Java", "Python", "npm", "SQL", "Sequelize", "Node.js", "C"
+    ]);
 
     return {
-      links
+      links,
+      skills
     }
   }
 })
@@ -61,10 +65,18 @@ export default defineComponent({
           </div>
         </div>
         <div class="panel links-panel">
-          <h2 style="margin-bottom: 20px;">Links</h2>
+          <h2>Links</h2>
           <div class="row link" v-for="link of links">
             <img :src="link.image" class="link-img">
             <a :href="link.link" class="link-hyperlink">{{ link.overwrite || link.link }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="column col-2">
+        <div class="panel skills-classes-panel">
+          <h2>Skills:</h2>
+          <div class="skills-holder">
+            <span class="skill" v-for="(skill, index) of skills" :style="{'font-weight': index < 5 ? 700 : 500}">{{ skill }}</span>
           </div>
         </div>
       </div>
@@ -73,11 +85,18 @@ export default defineComponent({
 </template>
 
 <style scoped>
-.col-1 {
-  width: 400px;
+.column {
   .panel {
     width: 100%;
   }
+}
+.col-1 {
+  width: 400px;
+  margin-right: 15px;
+}
+
+.col-2 {
+  width: 650px;
 }
 
 .profile-img {
@@ -93,7 +112,7 @@ export default defineComponent({
 .personal-panel {
   font-size: 1.2rem;
   font-weight: 600 !important;
-  margin: 0 15px 15px 0;
+  margin-bottom: 15px;
 
   .row {
     justify-content: space-between;
@@ -101,7 +120,7 @@ export default defineComponent({
 
   span {
     white-space: nowrap;
-    text-align: left;
+    text-align: right;
   }
 }
 
@@ -147,5 +166,22 @@ export default defineComponent({
 
 .link-hyperlink {
   font-weight: 700;
+}
+
+.skills-classes-panel {
+  .skills-holder {
+    display: flex;
+    flex-wrap: wrap;
+
+    .skill {
+      font-size: 20px;
+      color: var(--color-2-dark);
+      margin-right: 20px;
+    }
+  }
+}
+
+h2 {
+  margin-bottom: 20px;
 }
 </style>
