@@ -8,11 +8,28 @@
 .row {
   display: flex;
   flex-direction: row;
-  height: 100%;
 }
 
 .column {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.main-page {
+  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.panel {
+  background: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #c4d9df;
+  border-radius: 5px;
+  box-shadow: 5px 0px 20px 0px #0000001c;
+  padding: 1rem;
+  height: fit-content;
+  width: fit-content;
 }
