@@ -1,4 +1,5 @@
 @import './base.css';
+@import './animations.css';
 
 #app {
   margin: 0 auto;
@@ -20,6 +21,7 @@
   padding: 1.5rem;
   width: 100%;
   height: 100%;
+  animation: fade-in 0.2s;
 }
 
 .panel {
