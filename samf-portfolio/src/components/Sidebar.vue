@@ -59,8 +59,8 @@ export default defineComponent({
 .sidebar-wrapper {
   position: relative;
   height: 100vh;
-  /* width: 43%; */
-  max-width: 250px;
+  width: 43%;
+  max-width: 275px;
   z-index: 10;
 
   .sidebar {

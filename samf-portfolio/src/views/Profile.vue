@@ -73,11 +73,19 @@ export default defineComponent({
         </div>
       </div>
       <div class="column col-2">
-        <div class="panel skills-classes-panel">
+        <div class="panel skills-panel">
           <h2>Skills:</h2>
           <div class="skills-holder">
             <span class="skill" v-for="(skill, index) of skills" :style="{'font-weight': index < 5 ? 700 : 500}">{{ skill }}</span>
           </div>
+        </div>
+        <div class="panel classes-panel">
+          <h2>Classes:</h2>
+
+        </div>
+        <div class="panel experience-panel">
+          <h2>Experience:</h2>
+
         </div>
       </div>
     </div>
@@ -86,13 +94,14 @@ export default defineComponent({
 
 <style scoped>
 .column {
+  margin-right: 15px;
   .panel {
     width: 100%;
+    margin-bottom: 15px;
   }
 }
 .col-1 {
   width: 400px;
-  margin-right: 15px;
 }
 
 .col-2 {
@@ -168,14 +177,14 @@ export default defineComponent({
   font-weight: 700;
 }
 
-.skills-classes-panel {
+.skills-panel {
   .skills-holder {
     display: flex;
     flex-wrap: wrap;
 
     .skill {
       font-size: 20px;
-      color: var(--color-2-dark);
+      color: #7caec3;
       margin-right: 20px;
     }
   }
