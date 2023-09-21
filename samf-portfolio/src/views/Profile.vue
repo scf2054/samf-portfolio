@@ -81,9 +81,11 @@ export default defineComponent({
             <span class="skill" v-for="(skill, index) of skills" :style="{'font-weight': index < 5 ? 700 : 500}">{{ skill }}</span>
           </div>
         </div>
-        <div class="panel classes-panel">
-          <h2>Classes:</h2>
+        <div class="panel courses-panel">
+          <h2>Courses Taken:</h2>
+          <div class="course-holder" v-for="course of COURSES">
 
+          </div>
         </div>
         <div class="panel experience-panel">
           <h2>Experience:</h2>
@@ -180,16 +182,34 @@ export default defineComponent({
 }
 
 .skills-panel {
+  background-color: aliceblue;
   .skills-holder {
     display: flex;
     flex-wrap: wrap;
 
     .skill {
       font-size: 20px;
-      color: #7caec3;
+      color: #50717b;
       margin-right: 20px;
     }
   }
+}
+
+.courses-panel {
+  background-color: aliceblue;
+  max-height: 250px;
+  overflow: hidden;
+  overflow-y: scroll;
+  .course-holder {
+    background-color: white;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 0.25rem;
+  }
+}
+
+.experience-panel {
+  background-color: aliceblue;
 }
 
 h2 {
