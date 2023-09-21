@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent, type Ref, ref } from 'vue';
+import { COURSES } from "../assets/db/db";
 
 interface Link {
   image: string,
@@ -30,7 +31,8 @@ export default defineComponent({
 
     return {
       links,
-      skills
+      skills,
+      COURSES
     }
   }
 })
