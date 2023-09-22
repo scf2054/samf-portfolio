@@ -1,6 +1,8 @@
 <script lang="ts">
 import { defineComponent, type Ref, ref } from 'vue';
-import { COURSES } from "../assets/db/db";
+import { COURSES, SKILLS } from "../assets/db/db";
+import { type Course } from '@/assets/db/interfaces';
+import router from '@/router';
 
 interface Link {
   image: string,
@@ -25,14 +27,15 @@ export default defineComponent({
         overwrite: 'https://www.linkedin.com/sam-frost'
       }
     ]);
-    const skills: Ref<string[]> = ref([
-      "Javascript", "Typescript", "Version Control", "Git", "Angular", "Vue", "Java", "Python", "npm", "SQL", "Sequelize", "Node.js", "C"
-    ]);
+    const clickCourse = (courseIndex: number) => {
+      router.push({ name: 'Education', query: { courseIndex: courseIndex } });
+    }
 
     return {
       links,
-      skills,
-      COURSES
+      SKILLS,
+      COURSES,
+      clickCourse
     }
   }
 })
@@ -78,7 +81,7 @@ export default defineComponent({
         <div class="panel skills-panel">
           <h2>Skills:</h2>
           <div class="skills-holder">
-            <span class="skill" v-for="(skill, index) of skills" :style="{ 'font-weight': index < 5 ? 700 : 500 }">{{
+            <span class="skill" v-for="(skill, index) of SKILLS" :style="{ 'font-weight': index < 5 ? 700 : 500 }">{{
               skill
             }}</span>
           </div>
@@ -86,7 +89,7 @@ export default defineComponent({
         <div class="panel courses-panel">
           <h2>Courses Taken:</h2>
           <div class="courses-holder">
-            <div class="course-holder" v-for="course of COURSES">
+            <div class="course" v-for="(course, index) of COURSES" @click="clickCourse(index)">
               <div class="header">
                 <h4 class="title">
                   <span class="course-title">{{ course.fullName }}</span>
@@ -220,7 +223,7 @@ export default defineComponent({
     overflow: hidden;
     overflow-y: scroll;
 
-    .course-holder {
+    .course {
       background-color: white;
       width: 100%;
       margin-bottom: 15px;
@@ -270,7 +273,7 @@ export default defineComponent({
       }
     }
 
-    .course-holder:hover {
+    .course:hover {
       cursor: pointer;
       background-color: #f1f1f1;
       transition: 0.2s;

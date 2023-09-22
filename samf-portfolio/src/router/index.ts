@@ -26,7 +26,7 @@ const router = createRouter({
       }
     }, 
     {
-      path: '/employement-history',
+      path: '/employment-history',
       name: 'Employment History',
       component: EmploymentHistory,
       meta: {

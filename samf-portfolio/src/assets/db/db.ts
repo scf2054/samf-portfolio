@@ -1,5 +1,19 @@
 import type { Course } from "../db/interfaces";
 
+export const SKILLS: string[] = [
+  "Javascript", 
+  "Typescript", 
+  "Version Control", 
+  "Git", "Angular", 
+  "Vue", "Java", 
+  "Python", 
+  "npm", 
+  "SQL", 
+  "Sequelize", 
+  "Node.js", 
+  "C"
+];
+
 export const COURSES: Course[] = [
   {
     code: "SWEN-123",

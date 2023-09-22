@@ -1,13 +1,15 @@
 <script lang="ts">
-import { defineComponent, onMounted, ref, type Ref } from 'vue';
-import router from '../router/index';
+import { defineComponent, onMounted, ref, type Ref, watch } from 'vue';
+import routerIndex from '../router/index';
+import { useRoute } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 
 export default defineComponent({
   name: 'sidebar',
   emits: [],
   setup() {
-    const routes = router.getRoutes();
+    const routes = routerIndex.getRoutes();
+    const router = useRoute();
     const activeRouteHeight: Ref<number> = ref(0);
     const activeRouteY: Ref<number> = ref(0);
 
@@ -15,9 +17,13 @@ export default defineComponent({
       clickRoute(routes[0]);
     })
 
+    watch(() => router.fullPath, async newPath => {
+      setActiveRouteStyle(newPath.split("?")[0]);
+    })
+
     // events that occur when a route is clicked
     const clickRoute = (route: RouteRecordRaw): void => {
-      router.push(route.path);
+      routerIndex.push(route.path);
       setActiveRouteStyle(route.path);
     }
 

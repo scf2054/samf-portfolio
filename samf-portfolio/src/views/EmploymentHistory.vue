@@ -9,7 +9,6 @@ export default defineComponent({
 })
 </script>
 <template>
-Employee History
+  Employee History
 </template>
-<style posted>
-</style>
+<style posted></style>
