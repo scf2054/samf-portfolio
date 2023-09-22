@@ -3,5 +3,6 @@ export interface Course {
   fullName: string,
   description: string,
   brief: string,
-  semester: string
+  semester: string,
+  in_progress?: boolean
 }

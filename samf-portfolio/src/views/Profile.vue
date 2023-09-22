@@ -78,13 +78,26 @@ export default defineComponent({
         <div class="panel skills-panel">
           <h2>Skills:</h2>
           <div class="skills-holder">
-            <span class="skill" v-for="(skill, index) of skills" :style="{'font-weight': index < 5 ? 700 : 500}">{{ skill }}</span>
+            <span class="skill" v-for="(skill, index) of skills" :style="{ 'font-weight': index < 5 ? 700 : 500 }">{{
+              skill
+            }}</span>
           </div>
         </div>
         <div class="panel courses-panel">
           <h2>Courses Taken:</h2>
-          <div class="course-holder" v-for="course of COURSES">
-
+          <div class="courses-holder">
+            <div class="course-holder" v-for="course of COURSES">
+              <div class="header">
+                <h4 class="title">
+                  <span class="course-title">{{ course.fullName }}</span>
+                  <span class="course-code">{{ course.code }}</span>
+                </h4>
+                <div class="in-progress" v-if="course.in_progress">*In Progress</div>
+              </div>
+              <div class="body">
+                {{ course.brief }}
+              </div>
+            </div>
           </div>
         </div>
         <div class="panel experience-panel">
@@ -99,11 +112,13 @@ export default defineComponent({
 <style scoped>
 .column {
   margin-right: 15px;
+
   .panel {
     width: 100%;
     margin-bottom: 15px;
   }
 }
+
 .col-1 {
   width: 400px;
 }
@@ -172,6 +187,7 @@ export default defineComponent({
   margin-bottom: 15px;
   justify-content: space-between;
 }
+
 .link-img {
   width: 30px;
   height: initial;
@@ -182,7 +198,8 @@ export default defineComponent({
 }
 
 .skills-panel {
-  background-color: aliceblue;
+  background-color: rgb(245, 251, 253);
+
   .skills-holder {
     display: flex;
     flex-wrap: wrap;
@@ -196,20 +213,73 @@ export default defineComponent({
 }
 
 .courses-panel {
-  background-color: aliceblue;
-  max-height: 250px;
-  overflow: hidden;
-  overflow-y: scroll;
-  .course-holder {
-    background-color: white;
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 0.25rem;
+  background-color: rgb(245, 251, 253);
+
+  .courses-holder {
+    max-height: 250px;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    .course-holder {
+      background-color: white;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 0.5rem;
+      border-style: solid;
+      border-color: #e7e7e7;
+      border-radius: 2px;
+      box-shadow: 0px 0px 10px 0px #0000001c;
+      transition: 0.2s;
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        .title {
+          display: flex;
+          align-items: baseline;
+          width: 85%;
+
+          .course-title {
+            width: 75%;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+            display: block;
+          }
+
+          .course-code {
+            color: gray;
+            font-size: 0.7rem;
+            margin-left: 15px;
+          }
+        }
+
+        .in-progress {
+          color: var(--color-2-dark);
+          font-weight: 700;
+          font-size: 0.7rem;
+        }
+      }
+
+      .body {
+        margin-top: 10px;
+        font-weight: 600;
+        color: #436370;
+      }
+    }
+
+    .course-holder:hover {
+      cursor: pointer;
+      background-color: #f1f1f1;
+      transition: 0.2s;
+    }
   }
 }
 
 .experience-panel {
-  background-color: aliceblue;
+  background-color: rgb(245, 251, 253);
 }
 
 h2 {

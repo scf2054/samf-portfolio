@@ -6,7 +6,7 @@ export const COURSES: Course[] = [
     fullName: "Software Development & Problem Solving I",
     brief: "Introductory programming course teaching problem solving, data structures and algorithmic testing in Python.",
     description: "A first course introducing me to the fundamentals of computational problem solving. I learned a systematic approach to problem solving, including how to frame a problem in computational terms, how to decompose larger problems into smaller components, how to implement innovative software solutions using Python, how to critically debug my solutions, and how to assess the adequacy of the software solution. Additional topics include an introduction to object-oriented programming and data structures such as arrays and stacks. I completed both in-class and out-of-class assignments.",
-    semester: "Fall 2020"
+    semester: "Fall 2020",
   }, {
     code: "SWEN-250",
     fullName: "Personal Software Engineering",
