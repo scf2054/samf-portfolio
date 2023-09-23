@@ -1,20 +1,20 @@
-import type { Course } from "../db/interfaces";
+import * as interfaces from "../db/interfaces";
 
 export const SKILLS: string[] = [
-  "Javascript", 
-  "Typescript", 
-  "Version Control", 
-  "Git", "Angular", 
-  "Vue", "Java", 
-  "Python", 
-  "npm", 
-  "SQL", 
-  "Sequelize", 
-  "Node.js", 
+  "Javascript",
+  "Typescript",
+  "Version Control",
+  "Git", "Angular",
+  "Vue", "Java",
+  "Python",
+  "npm",
+  "SQL",
+  "Sequelize",
+  "Node.js",
   "C"
 ];
 
-export const COURSES: Course[] = [
+export const COURSES: interfaces.Course[] = [
   {
     code: "SWEN-123",
     fullName: "Software Development & Problem Solving I",
@@ -59,3 +59,33 @@ export const COURSES: Course[] = [
     semester: "Fall 2021"
   } // TODO: add more
 ];
+
+export const EXPERIENCES: interfaces.Experience[] = [
+  {
+    title: "Full-Stack Developer Intern",
+    company: "Sandbox Union LLC.",
+    website: "https://sandboxunion.com/",
+    logo: "src/assets/images/sbu_logo.png",
+    start_date: new Date("5/23/2022"),
+    end_date: new Date("1/13/2023"),
+    brief: "Full-Stack start-up, contractor co-op that uses Angular, Node and Sequelize.",
+    description: ""
+  }, {
+    title: "IT Intern (Software Engineering)",
+    company: "Roswell Park Cancer Institute",
+    website: "https://www.roswellpark.org/",
+    logo: "src/assets/images/roswell_logo.png",
+    start_date: new Date("5/23/2023"),
+    end_date: new Date("8/17/2023"),
+    brief: "Full-stack internship developing Vue3 software for neurosurgeons who worked for the hospital.",
+    description: ""
+  }, {
+    title: "Course Assistant for GCIS-125/GCIS-127",
+    company: "Rochester Institute of Technology",
+    website: "https://www.rit.edu/",
+    logo: "src/assets/images/rit_tiger.png",
+    start_date: new Date("1/17/2022"),
+    brief: "Graded coding homeworks, exams, and quizzes in Java and Python.",
+    description: ""
+  }
+]

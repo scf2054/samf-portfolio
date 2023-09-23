@@ -6,3 +6,14 @@ export interface Course {
   semester: string,
   in_progress?: boolean
 }
+
+export interface Experience {
+  title: string,
+  company: string,
+  website: string,
+  logo: string,
+  start_date: Date,
+  end_date?: Date,
+  brief: string,
+  description: string
+}

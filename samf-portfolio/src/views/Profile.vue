@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, type Ref, ref } from 'vue';
-import { COURSES, SKILLS } from "../assets/db/db";
+import * as DB from "../assets/db/db";
 import { type Course } from '@/assets/db/interfaces';
 import router from '@/router';
 
@@ -33,8 +33,9 @@ export default defineComponent({
 
     return {
       links,
-      SKILLS,
-      COURSES,
+      skills: DB.SKILLS,
+      courses: DB.COURSES,
+      experiences: DB.EXPERIENCES,
       clickCourse
     }
   }
@@ -81,15 +82,15 @@ export default defineComponent({
         <div class="panel skills-panel">
           <h2>Skills:</h2>
           <div class="skills-holder">
-            <span class="skill" v-for="(skill, index) of SKILLS" :style="{ 'font-weight': index < 5 ? 700 : 500 }">{{
+            <span class="skill" v-for="(skill, index) of skills" :style="{ 'font-weight': index < 5 ? 700 : 500 }">{{
               skill
             }}</span>
           </div>
         </div>
         <div class="panel courses-panel">
           <h2>Courses Taken:</h2>
-          <div class="courses-holder">
-            <div class="course" v-for="(course, index) of COURSES" @click="clickCourse(index)">
+          <div class="blocks-holder">
+            <div class="block" v-for="(course, index) of courses" @click="clickCourse(index)">
               <div class="header">
                 <h4 class="title">
                   <span class="course-title">{{ course.fullName }}</span>
@@ -105,7 +106,20 @@ export default defineComponent({
         </div>
         <div class="panel experience-panel">
           <h2>Experience:</h2>
-
+          <div class="blocks-holder">
+            <div class="block" v-for="(exp, index) of experiences">
+              <div class="header">
+                <h4 class="title">
+                  <span class="exp-title">{{ exp.title }}</span>
+                  <span class="exp-company">{{ exp.company }}</span>
+                </h4>
+                <div class="in-progress" v-if="!exp.end_date">*In Progress</div>
+              </div>
+              <div class="body">
+                {{ exp.brief }}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -113,15 +127,6 @@ export default defineComponent({
 </template>
 
 <style scoped>
-.column {
-  margin-right: 15px;
-
-  .panel {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-}
-
 .col-1 {
   width: 400px;
 }
@@ -130,74 +135,134 @@ export default defineComponent({
   width: 650px;
 }
 
-.profile-img {
-  width: 250px;
-  align-self: center;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #b0d7f3;
-  border-radius: 50%;
-  margin-bottom: 50px;
+.column {
+  margin-right: 15px;
+
+  .panel {
+    width: 100%;
+    margin-bottom: 15px;
+
+    .blocks-holder {
+      max-height: 250px;
+      overflow: hidden;
+      overflow-y: scroll;
+
+      .block {
+        background-color: white;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 0.5rem;
+        border-style: solid;
+        border-color: #e7e7e7;
+        border-radius: 2px;
+        box-shadow: 0px 0px 10px 0px #0000001c;
+        transition: 0.2s;
+
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+
+          .title {
+            display: flex;
+            align-items: baseline;
+            width: 85%;
+          }
+
+          .in-progress {
+            color: var(--color-2-dark);
+            font-weight: 700;
+            font-size: 0.7rem;
+          }
+        }
+
+        .body {
+          margin-top: 10px;
+          font-weight: 600;
+          color: #436370;
+        }
+      }
+
+      .block:hover {
+        cursor: pointer;
+        background-color: #f1f1f1;
+        transition: 0.2s;
+      }
+    }
+  }
 }
 
 .personal-panel {
   font-size: 1.2rem;
   font-weight: 600 !important;
-  margin-bottom: 15px;
 
+  .column {
+    .school {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .tiger-img {
+        width: 40px;
+        margin-left: 5px;
+      }
+    }
+
+    .profile-img {
+      width: 250px;
+      align-self: center;
+      border-style: solid;
+      border-width: 3px;
+      border-color: #b0d7f3;
+      border-radius: 50%;
+      margin-bottom: 50px;
+    }
+
+    .row {
+      justify-content: space-between;
+
+      .light-color-value {
+        font-weight: 700;
+        color: #7caec3;
+      }
+    }
+
+    span {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .name {
+      font-weight: 800;
+
+      .pronouns {
+        color: var(--color-1-light);
+        font-size: 1rem;
+        font-weight: 500;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.links-panel {
   .row {
+    margin-bottom: 5px;
+  }
+
+  .link {
+    margin-bottom: 15px;
     justify-content: space-between;
   }
 
-  span {
-    white-space: nowrap;
-    text-align: right;
+  .link-img {
+    width: 30px;
+    height: initial;
   }
-}
 
-.name {
-  font-weight: 800;
-
-  .pronouns {
-    color: var(--color-1-light);
-    font-size: 1rem;
-    font-weight: 500;
-    margin-left: 5px;
+  .link-hyperlink {
+    font-weight: 700;
   }
-}
-
-.school {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-
-  .tiger-img {
-    width: 40px;
-    margin-left: 5px;
-  }
-}
-
-.light-color-value {
-  font-weight: 700;
-  color: #7caec3;
-}
-
-.row {
-  margin-bottom: 5px;
-}
-
-.link {
-  margin-bottom: 15px;
-  justify-content: space-between;
-}
-
-.link-img {
-  width: 30px;
-  height: initial;
-}
-
-.link-hyperlink {
-  font-weight: 700;
 }
 
 .skills-panel {
@@ -218,66 +283,18 @@ export default defineComponent({
 .courses-panel {
   background-color: rgb(245, 251, 253);
 
-  .courses-holder {
-    max-height: 250px;
-    overflow: hidden;
-    overflow-y: scroll;
+  .course-title {
+    width: 75%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    display: block;
+  }
 
-    .course {
-      background-color: white;
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 0.5rem;
-      border-style: solid;
-      border-color: #e7e7e7;
-      border-radius: 2px;
-      box-shadow: 0px 0px 10px 0px #0000001c;
-      transition: 0.2s;
-
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-
-        .title {
-          display: flex;
-          align-items: baseline;
-          width: 85%;
-
-          .course-title {
-            width: 75%;
-            overflow-x: hidden;
-            text-overflow: ellipsis;
-            text-wrap: nowrap;
-            display: block;
-          }
-
-          .course-code {
-            color: gray;
-            font-size: 0.7rem;
-            margin-left: 15px;
-          }
-        }
-
-        .in-progress {
-          color: var(--color-2-dark);
-          font-weight: 700;
-          font-size: 0.7rem;
-        }
-      }
-
-      .body {
-        margin-top: 10px;
-        font-weight: 600;
-        color: #436370;
-      }
-    }
-
-    .course:hover {
-      cursor: pointer;
-      background-color: #f1f1f1;
-      transition: 0.2s;
-    }
+  .course-code {
+    color: gray;
+    font-size: 0.7rem;
+    margin-left: 15px;
   }
 }
 

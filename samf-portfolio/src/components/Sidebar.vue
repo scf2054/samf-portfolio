@@ -23,8 +23,8 @@ export default defineComponent({
 
     // events that occur when a route is clicked
     const clickRoute = (route: RouteRecordRaw): void => {
-      routerIndex.push(route.path);
       setActiveRouteStyle(route.path);
+      routerIndex.push(route.path);
     }
 
     // sets the height and offset of the active route indicator based on the route id passed in
@@ -35,7 +35,6 @@ export default defineComponent({
         activeRouteY.value = element.offsetTop;
       } else {
         console.error("Route element does not exist.");
-
       }
     }
 
