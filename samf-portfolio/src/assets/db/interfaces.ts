@@ -4,7 +4,8 @@ export interface Course {
   description: string,
   brief: string,
   semester: string,
-  in_progress?: boolean
+  in_progress?: boolean,
+  img?: string
 }
 
 export interface Experience {

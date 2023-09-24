@@ -282,7 +282,7 @@ export default defineComponent({
 }
 
 .skills-panel {
-  background-color: rgb(245, 251, 253);
+  background-color: #F5FBFD;
 
   .skills-holder {
     display: flex;
@@ -297,7 +297,7 @@ export default defineComponent({
 }
 
 .courses-panel {
-  background-color: rgb(245, 251, 253);
+  background-color: #F5FBFD;
 
   .course-title {
     width: 75%;
@@ -315,7 +315,7 @@ export default defineComponent({
 }
 
 .experience-panel {
-  background-color: rgb(245, 251, 253);
+  background-color: #F5FBFD;
 
   .blocks-holder {
     .block {
