@@ -65,6 +65,7 @@ export const EXPERIENCES: interfaces.Experience[] = [
   {
     title: "Full-Stack Developer Intern",
     company: "Sandbox Union LLC.",
+    location: "Rochester, NY",
     website: "https://sandboxunion.com/",
     logo: "src/assets/images/sbu_logo.png",
     start_date: new Date("5/23/2022"),
@@ -74,6 +75,7 @@ export const EXPERIENCES: interfaces.Experience[] = [
   }, {
     title: "IT Intern (Software Engineering)",
     company: "Roswell Park Cancer Institute",
+    location: "Buffalo, NY",
     website: "https://www.roswellpark.org/",
     logo: "src/assets/images/roswell_logo.png",
     start_date: new Date("5/23/2023"),
@@ -83,8 +85,9 @@ export const EXPERIENCES: interfaces.Experience[] = [
   }, {
     title: "Course Assistant for GCIS-125/GCIS-127",
     company: "Rochester Institute of Technology",
+    location: "Rochester, NY",
     website: "https://www.rit.edu/",
-    logo: "src/assets/images/rit_tiger.png",
+    logo: "src/assets/images/rit_logo.png",
     start_date: new Date("1/17/2022"),
     brief: "Graded coding homeworks, exams, and quizzes in Java and Python.",
     description: ""

@@ -11,6 +11,7 @@ export interface Course {
 export interface Experience {
   title: string,
   company: string,
+  location: string,
   website: string,
   logo: string,
   start_date: Date,
