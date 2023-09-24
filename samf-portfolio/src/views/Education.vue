@@ -32,7 +32,7 @@ export default defineComponent({
   <div class="main-page education-main-page">
     <div class="column">
       <div class="panel" v-for="(course, index) of courses" :id="`course-${index}`"
-        :style="{ 'background-color': index == courseClickedIndex ? '#F5FBFD' : 'white' }">
+        :style="{ 'border-color': index == courseClickedIndex ? '#c2e2ec' : 'white' }">
         <div class="header">
           <h2 class="title">
             <span class="title-text">
@@ -48,7 +48,7 @@ export default defineComponent({
           <h3 class="semester">{{ course.semester }}</h3>
           <div class="description-holder">
             <div class="description" :style="{ 'width': course.img ? '60%' : '100%' }">{{ course.description }}</div>
-            <img v-if="course.img" :src="course.img" style="width: 35%">
+            <img class="course-img" v-if="course.img" :src="course.img">
           </div>
         </div>
       </div>
@@ -65,6 +65,7 @@ export default defineComponent({
     .panel {
       width: 100%;
       margin-bottom: 30px;
+      border-width: 3px;
 
       .header {
         display: flex;
@@ -108,6 +109,39 @@ export default defineComponent({
         .description-holder {
           display: flex;
           justify-content: space-between;
+
+          .course-img {
+            width: 38%;
+            height: min-content;
+            border-style: solid;
+            border-width: 2px;
+            border-color: rgb(196, 224, 250);
+            box-shadow: 0px 0px 20px 0px #0000001c;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1163px) {
+  .education-main-page {
+    .column {
+      .panel {
+        .body {
+          .description-holder {
+            flex-direction: column;
+
+            .description {
+              width: 100% !important;
+              margin-bottom: 15px;
+            }
+
+            .course-img {
+              width: 50%;
+              min-width: 275px;
+            }
+          }
         }
       }
     }

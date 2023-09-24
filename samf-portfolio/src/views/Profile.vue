@@ -14,14 +14,14 @@ export default defineComponent({
   setup() {
     const links: Ref<Link[]> = ref([
       {
-        image: 'src/assets/images/Gmail.png',
+        image: 'src/assets/images/logos/Gmail.png',
         link: 'mailto:frosts1125@gmail.com',
         overwrite: 'frosts1125@gmail.com'
       }, {
-        image: 'src/assets/images/GitHub.png',
+        image: 'src/assets/images/logos/GitHub.png',
         link: 'https://github.com/scf2054'
       }, {
-        image: 'src/assets/images/LinkedIn.png',
+        image: 'src/assets/images/logos/LinkedIn.png',
         link: 'https://www.linkedin.com/in/samuel-frost-b681531b4/',
         overwrite: 'https://www.linkedin.com/sam-frost'
       }
@@ -47,14 +47,14 @@ export default defineComponent({
 
 <template>
   <div class="main-page">
-    <div class="row main-page-row">
+    <div class="row profile-page-row">
       <div class="column col-1">
         <div class="panel personal-panel">
           <div class="column">
             <img class="profile-img" src="src/assets/images/me_square.png">
-            <span class="name">Samuel (Sam) C. Frost <span class="pronouns">(He/Him)</span></span>
+            <h3 class="name">Samuel (Sam) C. Frost <span class="pronouns">(He/Him)</span></h3>
             <span class="school">Rochester Institute of Technology <img class="tiger-img"
-                src="src/assets/images/rit_tiger.png"></span>
+                src="src/assets/images/logos/rit_tiger.png"></span>
             <div class="row">
               <span class="major">B.S. Software Engineering</span>
               <span class="year light-color-value">4th Year</span>
@@ -130,7 +130,7 @@ export default defineComponent({
 </template>
 
 <style scoped>
-.main-page-row {
+.profile-page-row {
   height: 100%;
   justify-content: space-around;
 }
@@ -337,5 +337,45 @@ export default defineComponent({
 
 h2 {
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1430px) {
+  .profile-page-row {
+    flex-direction: column;
+    height: auto;
+
+    .column {
+      width: 100%;
+
+      .panel {
+        margin-bottom: 15px;
+      }
+
+      .links-panel {
+        margin-left: 15px;
+      }
+    }
+
+    .col-1 {
+      flex-direction: row;
+    }
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .profile-page-row {
+
+    .col-1 {
+      flex-direction: column;
+
+      .links-panel {
+        margin-left: 0px;
+      }
+    }
+  }
+
+  .profile-img {
+    align-self: flex-start !important;
+  }
 }
 </style>

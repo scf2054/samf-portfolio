@@ -1,3 +1,5 @@
+import type { RouteParamsRaw } from "vue-router"
+
 export interface Course {
   code: string,
   fullName: string,
@@ -17,5 +19,13 @@ export interface Experience {
   start_date: Date,
   end_date?: Date,
   brief: string,
-  description: string
+  description: string,
+  keywords?: KeyWord[],
+  projects?: number[]
+}
+
+export interface KeyWord {
+  word: string,
+  route_name: string,
+  params: RouteParamsRaw
 }
