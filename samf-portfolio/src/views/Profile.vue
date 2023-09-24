@@ -1,7 +1,6 @@
 <script lang="ts">
 import { defineComponent, type Ref, ref } from 'vue';
 import * as DB from "../assets/db/db";
-import { type Course } from '@/assets/db/interfaces';
 import router from '@/router';
 
 interface Link {
@@ -30,13 +29,17 @@ export default defineComponent({
     const clickCourse = (courseIndex: number) => {
       router.push({ name: 'Education', query: { courseIndex: courseIndex } });
     }
+    const clickExperience = (expIndex: number) => {
+      router.push({ name: "Employment History", query: { expIndex: expIndex } });
+    }
 
     return {
       links,
       skills: DB.SKILLS,
       courses: DB.COURSES,
       experiences: DB.EXPERIENCES,
-      clickCourse
+      clickCourse,
+      clickExperience
     }
   }
 })
@@ -44,7 +47,7 @@ export default defineComponent({
 
 <template>
   <div class="main-page">
-    <div class="row">
+    <div class="row main-page-row">
       <div class="column col-1">
         <div class="panel personal-panel">
           <div class="column">
@@ -93,7 +96,7 @@ export default defineComponent({
             <div class="block" v-for="(course, index) of courses" @click="clickCourse(index)">
               <div class="header">
                 <h4 class="title">
-                  <span class="course-title">{{ course.fullName }}</span>
+                  <span class="course-title title-text">{{ course.fullName }}</span>
                   <span class="course-code">{{ course.code }}</span>
                 </h4>
                 <div class="in-progress" v-if="course.in_progress">*In Progress</div>
@@ -107,10 +110,10 @@ export default defineComponent({
         <div class="panel experience-panel">
           <h2>Experience:</h2>
           <div class="blocks-holder">
-            <div class="block" v-for="(exp, index) of experiences">
+            <div class="block" v-for="(exp, index) of experiences" @click="clickExperience(index)">
               <div class="header">
                 <h4 class="title">
-                  <span class="exp-title">{{ exp.title }}</span>
+                  <span class="exp-title title-text" style="width: 50%">{{ exp.title }}</span>
                   <span class="exp-company">{{ exp.company }}</span>
                 </h4>
                 <div class="in-progress" v-if="!exp.end_date">*In Progress</div>
@@ -127,6 +130,11 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.main-page-row {
+  height: 100%;
+  justify-content: space-around;
+}
+
 .col-1 {
   width: 400px;
 }
@@ -136,11 +144,11 @@ export default defineComponent({
 }
 
 .column {
-  margin-right: 15px;
+  height: 100%;
+  justify-content: space-between;
 
   .panel {
     width: 100%;
-    margin-bottom: 15px;
 
     .blocks-holder {
       max-height: 250px;
@@ -167,6 +175,14 @@ export default defineComponent({
             display: flex;
             align-items: baseline;
             width: 85%;
+
+            .title-text {
+              width: 75%;
+              overflow-x: hidden;
+              text-overflow: ellipsis;
+              text-wrap: nowrap;
+              display: block;
+            }
           }
 
           .in-progress {
@@ -300,6 +316,23 @@ export default defineComponent({
 
 .experience-panel {
   background-color: rgb(245, 251, 253);
+
+  .blocks-holder {
+    .block {
+      .header {
+        .title {
+          .title-text {
+            width: 50%
+          }
+
+          .exp-company {
+            color: gray;
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
 }
 
 h2 {
