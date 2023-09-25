@@ -51,10 +51,10 @@ export default defineComponent({
       <div class="column col-1">
         <div class="panel personal-panel">
           <div class="column">
-            <img class="profile-img" src="src/assets/images/me_square.png">
+            <img class="profile-img" src="/src/assets/images/me_square.png">
             <h3 class="name">Samuel (Sam) C. Frost <span class="pronouns">(He/Him)</span></h3>
             <span class="school">Rochester Institute of Technology <img class="tiger-img"
-                src="src/assets/images/logos/rit_tiger.png"></span>
+                src="/src/assets/images/logos/rit_tiger.png"></span>
             <div class="row">
               <span class="major">B.S. Software Engineering</span>
               <span class="year light-color-value">4th Year</span>
@@ -243,7 +243,7 @@ export default defineComponent({
       }
     }
 
-    span {
+    :is(span) {
       white-space: nowrap;
       text-align: right;
     }

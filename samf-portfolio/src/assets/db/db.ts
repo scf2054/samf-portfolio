@@ -57,7 +57,7 @@ export const COURSES: interfaces.Course[] = [
     brief: "A term-long team project using Java Spark was implemented to demonstrate software engineering aspects learned.",
     description: "An introductory course in software engineering, emphasizing the organizational aspects of software development and software design and implementation by individuals and small teams within a process/product framework. Topics include the software lifecycle, software design, user interface issues, specification and implementation of components, assessing design quality, design reviews and code inspections, software testing, basic support tools, technical communications and system documentation, team-based development. A term-long, team-based project done in a studio format is used to reinforce concepts presented in class.",
     semester: "Fall 2021",
-    img: "src/assets/images/projects/web_checkers/WebCheckers.png"
+    img: "/src/assets/images/projects/web_checkers/WebCheckers.png"
   } // TODO: add more
 ];
 
@@ -67,7 +67,7 @@ export const EXPERIENCES: interfaces.Experience[] = [
     company: "Sandbox Union LLC.",
     location: "Rochester, NY",
     website: "https://sandboxunion.com/",
-    logo: "src/assets/images/logos/sbu_logo.png",
+    logo: "/src/assets/images/logos/sbu_logo.png",
     start_date: new Date("5/23/2022"),
     end_date: new Date("1/13/2023"),
     brief: "Full-Stack start-up, contractor co-op that uses Angular, Node and Sequelize.",
@@ -78,7 +78,7 @@ export const EXPERIENCES: interfaces.Experience[] = [
     company: "Roswell Park Cancer Institute",
     location: "Buffalo, NY",
     website: "https://www.roswellpark.org/",
-    logo: "src/assets/images/logos/roswell_logo.png",
+    logo: "/src/assets/images/logos/roswell_logo.png",
     start_date: new Date("5/23/2023"),
     end_date: new Date("8/17/2023"),
     brief: "Full-stack internship developing Vue3 software for neurosurgeons who worked for the hospital.",
@@ -89,7 +89,7 @@ export const EXPERIENCES: interfaces.Experience[] = [
     company: "Rochester Institute of Technology",
     location: "Rochester, NY",
     website: "https://www.rit.edu/",
-    logo: "src/assets/images/logos/rit_logo.png",
+    logo: "/src/assets/images/logos/rit_logo.png",
     start_date: new Date("1/17/2022"),
     brief: "Graded coding homeworks, exams, and quizzes in Java and Python.",
     description: "I worked as a course assistant for introductory programming courses for freshman students. GCIS-124 is similar, if not exactly like SWEN-124 which I have taken previosuly. GCIS-127 is a course for transfer students with presumptions that they know a majority of the content being taught. I would attend class and help students catch up with the lecture if they fall behind due to bugs in their software. Outside of class, I would hold office hours where students can show up and ask questions on homework or if they have general inquiries about the content being taught. I would also grade the students' homeowork assignments, quizzes, class activies, and exams based on the effort and quality they put into their code.",
@@ -104,10 +104,10 @@ export const PROJECTS: interfaces.Project[] = [
     description: "An eviction case tracker for tenants, landlords and lawers.",
     images: [
       {
-        source: "src/assets/images/projects/case_compass/case_compass_homepage.png",
+        source: "/src/assets/images/projects/case_compass/case_compass_homepage.png",
         caption: "Home screen that displays all cases placed into boxes based on their current status."
       }, {
-        source: "src/assets/images/projects/case_compass/case_compass_intake_forms.png",
+        source: "/src/assets/images/projects/case_compass/case_compass_intake_forms.png",
         caption: "List of all intake forms submitted and their status (Awaiting Changes, Awaiting Review, Requires Fees). "
       }
     ],
