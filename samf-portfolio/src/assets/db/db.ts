@@ -95,4 +95,22 @@ export const EXPERIENCES: interfaces.Experience[] = [
     description: "I worked as a course assistant for introductory programming courses for freshman students. GCIS-124 is similar, if not exactly like SWEN-124 which I have taken previosuly. GCIS-127 is a course for transfer students with presumptions that they know a majority of the content being taught. I would attend class and help students catch up with the lecture if they fall behind due to bugs in their software. Outside of class, I would hold office hours where students can show up and ask questions on homework or if they have general inquiries about the content being taught. I would also grade the students' homeowork assignments, quizzes, class activies, and exams based on the effort and quality they put into their code.",
     keywords: [{ word: "SWEN-124", route_name: "Education", params: { 'courseIndex': 2 } }]
   }
+];
+
+export const PROJECTS: interfaces.Project[] = [
+  {
+    name: "Case Compass",
+    company: 0,
+    description: "An eviction case tracker for tenants, landlords and lawers.",
+    images: [
+      {
+        source: "src/assets/images/projects/case_compass/case_compass_homepage.png",
+        caption: "Home screen that displays all cases placed into boxes based on their current status."
+      }, {
+        source: "src/assets/images/projects/case_compass/case_compass_intake_forms.png",
+        caption: "List of all intake forms submitted and their status (Awaiting Changes, Awaiting Review, Requires Fees). "
+      }
+    ],
+    tools: ["Angular", "TypeScript", "Sequelize", "Node", "Git", "Version Control"]
+  }
 ]

@@ -29,3 +29,16 @@ export interface KeyWord {
   route_name: string,
   params: RouteParamsRaw
 }
+
+export interface Project {
+  name: string,
+  company: number, // references Experience
+  description: string,
+  images?: ProjectImage[],
+  tools: string[]
+}
+
+export interface ProjectImage {
+  source: string,
+  caption: string
+}

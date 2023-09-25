@@ -1,6 +1,6 @@
 <script lang="ts">
-import { defineComponent, onMounted, toDisplayString } from 'vue';
-import { useRoute, type RouteParamsRaw } from 'vue-router';
+import { defineComponent, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import * as DB from "../assets/db/db";
 import router from '@/router';
 import type { KeyWord } from '../assets/db/interfaces';
