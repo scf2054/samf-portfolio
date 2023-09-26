@@ -3,29 +3,9 @@ import { defineComponent, type Ref, ref } from 'vue';
 import * as DB from "../assets/db/db";
 import router from '@/router';
 
-interface Link {
-  image: string,
-  link: string,
-  overwrite?: string
-}
-
 export default defineComponent({
   name: 'profile',
   setup() {
-    const links: Ref<Link[]> = ref([
-      {
-        image: '/src/assets/images/logos/Gmail.png',
-        link: 'mailto:frosts1125@gmail.com',
-        overwrite: 'frosts1125@gmail.com'
-      }, {
-        image: '/src/assets/images/logos/GitHub.png',
-        link: 'https://github.com/scf2054'
-      }, {
-        image: '/src/assets/images/logos/LinkedIn.png',
-        link: 'https://www.linkedin.com/in/samuel-frost-b681531b4/',
-        overwrite: 'https://www.linkedin.com/sam-frost'
-      }
-    ]);
     const clickCourse = (courseIndex: number) => {
       router.push({ name: 'Education', query: { courseIndex: courseIndex } });
     }
@@ -34,7 +14,6 @@ export default defineComponent({
     }
 
     return {
-      links,
       skills: DB.SKILLS,
       courses: DB.COURSES,
       experiences: DB.EXPERIENCES,
@@ -75,9 +54,17 @@ export default defineComponent({
         </div>
         <div class="panel links-panel">
           <h2>Links</h2>
-          <div class="row link" v-for="link of links">
-            <img :src="link.image" class="link-img">
-            <a :href="link.link" class="link-hyperlink">{{ link.overwrite || link.link }}</a>
+          <div class="row link">
+            <img src="/src/assets/images/logos/Gmail.png" class="link-img">
+            <a href="mailto:frosts1125@gmail.com" class="link-hyperlink">frosts1125@gmail.com</a>
+          </div>
+          <div class="row link">
+            <img src="/src/assets/images/logos/GitHub.png" class="link-img">
+            <a href="https://github.com/scf2054" class="link-hyperlink">https://github.com/scf2054</a>
+          </div>
+          <div class="row link">
+            <img src="/src/assets/images/logos/LinkedIn.png" class="link-img">
+            <a href="https://www.linkedin.com/in/samuel-frost-b681531b4/" class="link-hyperlink">https://www.linkedin.com/sam-frost</a>
           </div>
         </div>
       </div>
