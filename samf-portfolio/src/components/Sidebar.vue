@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 
 export default defineComponent({
-  name: 'sidebar',
+  name: 'side-bar',
   emits: [],
   setup() {
     const routes = routerIndex.getRoutes();
@@ -14,7 +14,13 @@ export default defineComponent({
     const activeRouteY: Ref<number> = ref(0);
 
     onMounted(() => {
-      clickRoute(routes[0]);
+      let curr = router.path;
+      for (let route in routes) {
+        if (routes[route].path == curr) {
+          clickRoute(routes[route]);
+          break;
+        }
+      }
     })
 
     watch(() => router.fullPath, async newPath => {
@@ -51,9 +57,11 @@ export default defineComponent({
   <div class="sidebar-wrapper">
     <div class="sidebar">
       <div class="column routes">
-        <div class="route" v-for="route of routes" @click="clickRoute(route)" :id="route.path">
-          <font-awesome-icon :icon="route.meta.icon" class="icon fa-lg" />
-          <span class="name">{{ route.name }}</span>
+        <div class="route-holder" v-for="route of routes" @click="clickRoute(route)" :id="route.path">
+          <div class="route" v-if="route.meta.showRoute" >
+            <font-awesome-icon :icon="route.meta.icon" class="icon fa-lg" />
+            <span class="name">{{ route.name }}</span>
+          </div>
         </div>
       </div>
       <div class="active-route-indicator" :style="{ height: activeRouteHeight + 'px', top: activeRouteY + 'px' }"></div>

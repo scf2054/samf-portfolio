@@ -1,19 +1,9 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import Sidebar from './components/Sidebar.vue';
-import Topbar from './components/Topbar.vue';
-
+import Page from './views/Page.vue';
 </script>
 
 <template>
-    <div class="row" style="height: 100%">
-    <Sidebar />
-    <div class="column">
-      <Topbar />
-      <RouterView />
-    </div>
-  </div>
+  <Page />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

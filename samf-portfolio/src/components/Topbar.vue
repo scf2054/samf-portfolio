@@ -1,14 +1,31 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, ref, type Ref } from 'vue';
 
 export default defineComponent({
+  name: "top-bar",
+  emits: ["showSidebar"],
+  setup(props, {emit}) {
+    const showSidebar: Ref<boolean> = ref(true);
 
+    const toggleSidebar = (): void => {
+      showSidebar.value = !showSidebar.value;
+      emit("showSidebar", showSidebar.value);
+    }
+
+    onMounted(() => {
+      emit("showSidebar", showSidebar.value);
+    });
+
+    return {
+      toggleSidebar
+    }
+  }
 })
 </script>
 <template>
   <div class="topbar-wrapper">
     <div class="topbar">
-      <font-awesome-icon icon="bars" class="bars" />
+      <font-awesome-icon icon="bars" class="bars" @click="toggleSidebar()" />
       <span class="name">Samuel C. Frost</span>
     </div>
   </div>
@@ -31,6 +48,7 @@ export default defineComponent({
 
     .bars {
       height: 100%;
+      cursor: pointer;
     }
     .name {
       font-size: 1.25em;

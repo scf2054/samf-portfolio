@@ -9,16 +9,20 @@ import LeadershipExperience from '../views/LeadershpExperience.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // {
-    //   path: '/',
-    //   redirect: '/profile'
-    // },
+    {
+      path: '/',
+      redirect: '/profile',
+      meta: {
+        showRoute: false
+      }
+    },
     {
       path: '/profile',
       name: 'Profile',
       component: Profile,
       meta: {
-        icon: 'user'
+        icon: 'user',
+        showRoute: true
       }
     },
     {
@@ -26,7 +30,8 @@ const router = createRouter({
       name: 'Education',
       component: Education,
       meta: {
-        icon: 'school'
+        icon: 'school',
+        showRoute: true
       }
     }, 
     {
@@ -34,7 +39,8 @@ const router = createRouter({
       name: 'Employment History',
       component: EmploymentHistory,
       meta: {
-        icon: 'briefcase'
+        icon: 'briefcase',
+        showRoute: true
       }
     },
     {
@@ -42,7 +48,8 @@ const router = createRouter({
       name: 'Projects',
       component: Projects,
       meta: {
-        icon: 'computer'
+        icon: 'computer',
+        showRoute: true
       }
     },
     {
@@ -50,7 +57,8 @@ const router = createRouter({
       name: 'Leadership Experience',
       component: LeadershipExperience,
       meta: {
-        icon: 'handshake'
+        icon: 'handshake',
+        showRoute: true
       }
     }
   ]
