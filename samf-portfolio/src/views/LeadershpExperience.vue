@@ -7,16 +7,16 @@ export default defineComponent({
   setup() {
     const images: ProjectImage[] = [
       {
-        source: "src/assets/images/projects/kevin_guest_house/Ceiling Tile With Pipes.JPG",
+        source: "src/assets/images/projects/kevin_guest_house/Ceiling Tile With Pipes.png",
         caption: "Ceiling tiles were installed with cut out parts because of pipes going into ceiling."
       }, {
-        source: "src/assets/images/projects/kevin_guest_house/New Flooring.JPG",
+        source: "src/assets/images/projects/kevin_guest_house/New Flooring.png",
         caption: "Flooring installed with base floor poking out."
       }, {
-        source: "src/assets/images/projects/kevin_guest_house/Walls Painted Around Fire Extinguisher.JPG",
+        source: "src/assets/images/projects/kevin_guest_house/Walls Painted Around Fire Extinguisher.png",
         caption: "Walls painted around fire extinguisher as to not get in the way."
       }, {
-        source: "src/assets/images/projects/kevin_guest_house/Walls Painted With Closet Door.JPG",
+        source: "src/assets/images/projects/kevin_guest_house/Walls Painted With Closet Door.png",
         caption: "Walls painted around cabinet door."
       }
     ];

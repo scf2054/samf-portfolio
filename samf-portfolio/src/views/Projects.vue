@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 import * as DB from "../assets/db/db";
 import { useRoute } from 'vue-router';
 
@@ -9,6 +9,17 @@ export default defineComponent({
     const route = useRoute();
     const query = route.query;
     const projectClickedIndex = query.projectIndex as unknown as number;
+
+    const autoScroll = (projectIndex: number): void => {
+      if (projectIndex) {
+        const element = document.getElementById(`project-${projectIndex}`);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    onMounted(() => {
+      autoScroll(projectClickedIndex);
+    })
 
     return {
       projects: DB.PROJECTS,

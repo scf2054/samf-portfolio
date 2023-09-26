@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router';
 import * as DB from "../assets/db/db";
 import router from '@/router';
 import type { KeyWord } from '../assets/db/interfaces';
+import Projects from './Projects.vue';
 
 export default defineComponent({
   name: 'employment-history',
@@ -52,16 +53,29 @@ export default defineComponent({
       }
     }
 
+    const expHasProjects = (expIndex: number): boolean => {
+      let bool = false;
+      for (let project of DB.PROJECTS) {
+        if (project.company == expIndex) {
+          bool = true;
+          break;
+        }
+      }
+      return bool;
+    }
+
     onMounted(() => {
       autoScroll(expClickedIndex);
     });
 
     return {
       experiences: DB.EXPERIENCES,
+      projects: DB.PROJECTS,
       expClickedIndex,
       clickProject,
       wordIsKeyWord,
-      clickKeyWord
+      clickKeyWord,
+      expHasProjects
     }
   }
 })
@@ -69,8 +83,8 @@ export default defineComponent({
 <template>
   <div class="main-page experiences-main-page">
     <div class="column">
-      <div class="panel" v-for="(exp, index) of experiences" :id="`exp-${index}`"
-        :style="{ 'border-color': index == expClickedIndex ? '#c2e2ec' : 'white' }">
+      <div class="panel" v-for="(exp, exp_index) of experiences" :id="`exp-${exp_index}`"
+        :style="{ 'border-color': exp_index == expClickedIndex ? '#c2e2ec' : 'white' }">
         <div class="header">
           <h2 class="title">
             <span class="title-text">
@@ -87,13 +101,17 @@ export default defineComponent({
         </div>
         <div class="body">
           <div class="description">
-            <span v-for="word of exp.description.split(' ')" @click="clickKeyWord(word, exp.keywords)" :class="{'keyword': exp.keywords && wordIsKeyWord(word, exp.keywords)}">
+            <span v-for="word of exp.description.split(' ')" @click="clickKeyWord(word, exp.keywords)"
+              :class="{ 'keyword': exp.keywords && wordIsKeyWord(word, exp.keywords) }">
               {{ word + " " }}
             </span>
           </div>
-          <div class="projects-holder">
-            <span class="project" @click="clickProject(index)" v-for="(project, index) of exp.projects">- {{ project
-            }}</span>
+          <div class="projects-holder column" v-if="expHasProjects(exp_index)">
+            <h3>Projects:</h3>
+            <span class="project-holder" @click="clickProject(project_index)"
+              v-for="(exp_project, project_index) of projects">
+              <span class="project" v-if="exp_project.company == exp_index">- {{ exp_project.name }}</span>
+            </span>
           </div>
         </div>
       </div>
@@ -168,6 +186,18 @@ export default defineComponent({
           .keyword:hover {
             transition: 0.1s;
             color: #43637088;
+          }
+        }
+
+        .projects-holder {
+          margin-top: 15px;
+          width: max-content;
+          font-size: 1.4em;
+
+          .project-holder:hover {
+            cursor: pointer;
+            color: #43637091;
+            transition: 0.2s;
           }
         }
       }
