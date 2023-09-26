@@ -99,7 +99,8 @@ export default defineComponent({
     }
 
     .image-panel {
-      width: 75%;
+      width: 100%;
+      max-width: 800px;
       margin: 20px auto 0 auto;
     }
   }

@@ -1,8 +1,22 @@
 import * as interfaces from "../db/interfaces";
-import webCheckers from "/src/assets/images/projects/web_checkers/WebCheckers.png";
 import roswellLogo from "/src/assets/images/logos/roswell_logo.png";
 import sbuLogo from "/src/assets/images/logos/sbu_logo.png";
 import ritLogo from "/src/assets/images/logos/rit_logo.png";
+import ccHomePage from "/src/assets/images/projects/case_compass/case_compass_homepage.png";
+import ccBilling from "/src/assets/images/projects/case_compass/case_compass_billing.png";
+import ccTimeline from "/src/assets/images/projects/case_compass/case_compass_timeline.png";
+import swen262Diagram from "/src/assets/images/262_domain_model.png";
+import ptPatientList from "/src/assets/images/projects/patient_tracker/pt_patient_list.png";
+import ptBrainScan from "/src/assets/images/projects/patient_tracker/pt_brain_scan.png";
+import ptPatientProfile from "/src/assets/images/projects/patient_tracker/pt_patient_profile.png";
+import rTimecard from "/src/assets/images/projects/razak/r_timecard.png";
+import rCreateProject from "/src/assets/images/projects/razak/r_create_project_modal.png";
+import rTeamAndCost from "/src/assets/images/projects/razak/r_team_&_cost.png";
+import kmHomePage from "/src/assets/images/projects/km_davies/km_homepage.png";
+import kmNewTest from "/src/assets/images/projects/km_davies/km_new_test.png";
+import kmReporting from "/src/assets/images/projects/km_davies/km_reporting.png";
+import kmAddlTests from "/src/assets/images/projects/km_davies/km_addl_tests.png";
+import kmDefects from "/src/assets/images/projects/km_davies/km_defects.png";
 
 export const SKILLS: string[] = [
   "Javascript",
@@ -20,28 +34,10 @@ export const SKILLS: string[] = [
 
 export const COURSES: interfaces.Course[] = [
   {
-    code: "SWEN-123",
-    fullName: "Software Development & Problem Solving I",
-    brief: "Introductory programming course teaching problem solving, data structures and algorithmic testing in Python.",
-    description: "A first course introducing me to the fundamentals of computational problem solving. I learned a systematic approach to problem solving, including how to frame a problem in computational terms, how to decompose larger problems into smaller components, how to implement innovative software solutions using Python, how to critically debug my solutions, and how to assess the adequacy of the software solution. Additional topics include an introduction to object-oriented programming and data structures such as arrays and stacks. I completed both in-class and out-of-class assignments.",
-    semester: "Fall 2020",
-  }, {
-    code: "SWEN-250",
-    fullName: "Personal Software Engineering",
-    brief: "A project-based course using C teaching its data structures and concepts.",
-    description: "This is a project-based course to enhance individual, technical engineering knowledge and skills as preparation for upper-division team-based coursework. Topics include adapting to new languages, tools and technologies; developing and analyzing models as a prelude to implementation; software construction concepts (proper documentation, implementing to standards etc.); unit and integration testing; component-level estimation; and software engineering professionalism.",
-    semester: "Spring 2021"
-  }, {
     code: "SWEN-124",
     fullName: "Software Development & Problem Solving II",
     brief: "Secondary programming course taught solely in Java with major emphasis on object-oriented principles, time complexity, and group projects.",
     description: "A second course that delves further into computational problem solving, now with a focus on an object-oriented perspective. There is a continued emphasis on basic software design, testing & verification, and incremental development. Key topics include theoretical abstractions such as classes, objects, encapsulation, inheritance, interfaces, polymorphism, software design comprising multiple classes with UML, data structures (e.g. lists, trees, sets, maps, and graphs), exception/error handling, I/O including files and networking, concurrency, and graphical user interfaces. Additional topics include basic software design principles (coupling, cohesion, information expert, open-closed principle, etc.), test driven development, design patterns, data integrity, and data security.",
-    semester: "Spring 2021"
-  }, {
-    code: "PHYS-211",
-    fullName: "Universiy Physics I",
-    brief: "Course that teaches problem-solving and mathematical computational work through Physics topics.",
-    description: "This is a course in calculus-based physics for science and engineering majors. Topics include kinematics, planar motion, Newton's Laws, gravitation, work and energy, momentum and impulse, conservation laws, systems of particles, rotational motion, static equilibrium, mechanical oscillations and waves, and data presentation/analysis. The course is taught in a workshop format that integrates the material traditionally found in separate lecture and laboratory courses.",
     semester: "Spring 2021"
   }, {
     code: "MATH-190",
@@ -56,13 +52,45 @@ export const COURSES: interfaces.Course[] = [
     description: "A course in web engineering, emphasizing organizational aspects of web development, design and implementation by individuals and small teams. I was instructed in the proper application of software engineering principles to the creation of web applications. Course topics included, but not be limited to web usability, accessibility, testing, web services, databases, requirements elicitation and negotiation. A term-long, team-based project done in a studio format was used to reinforce concepts presented in class.",
     semester: "Fall 2021"
   }, {
-    code: "SWEN-261",
-    fullName: "Intro to Software Engineering",
-    brief: "A term-long team project using Java Spark was implemented to demonstrate software engineering aspects learned.",
-    description: "An introductory course in software engineering, emphasizing the organizational aspects of software development and software design and implementation by individuals and small teams within a process/product framework. Topics include the software lifecycle, software design, user interface issues, specification and implementation of components, assessing design quality, design reviews and code inspections, software testing, basic support tools, technical communications and system documentation, team-based development. A term-long, team-based project done in a studio format is used to reinforce concepts presented in class.",
-    semester: "Fall 2021",
-    img: webCheckers
-  } // TODO: add more
+    code: "SWEN-262",
+    fullName: "Engineering of Software Subsystems",
+    brief: "Subsystems with object-oriented principles taught through group projects.",
+    description: "An introduction to the principles of the foundations of contemporary software design. Topics include software subsystem modeling, design patterns, design tradeoffs, and component-based software development, with a focus on application of these concepts to concrete design problems. The relationship between design and related process issues such as testing, estimation, and maintenance are also discussed.",
+    semester: "Spring 2022",
+    img: swen262Diagram
+  }, {
+    code: "SWEN-256",
+    fullName: "Software Process & Project Management",
+    brief: "Business management course taught through a software lense.",
+    description: "An introductory course to software process and related software project management issues. Emphasis is on the study, use, evaluation, and improvement of the software development process and related project management. Topics include software development methodologies, software project planning and tracking, change control, software quality assurance, risk management, and software process assessment and improvement.",
+    semester: "Spring 2022"
+  }, {
+    code: "ISTE-230",
+    fullName: "Intro to Database and Data Modeling",
+    brief: "Introduction to SQL and database modeling & concepts.",
+    description: "A presentation of the fundamental concepts and theories used in organizing and structuring data. Coverage includes the data modeling process, basic relational model, normalization theory, relational algebra, and mapping a data model into a database schema. Structured Query Language is used to illustrate the translation of a data model to physical data organization.",
+    semester: "Spring 2022"
+  }, {
+    code: "CSCI-261",
+    fullName: "Analysis of Algorithms",
+    brief: "Heavy course-work class on analyzing and optimizing algorithms.",
+    description: "This course provides an introduction to the design and analysis of algorithms. It covers a variety of classical algorithms and data structures and their complexity and has equipped me with the intellectual tools to design, analyze, implement, and evaluate their own algorithms.",
+    semester: "Spring 2023"
+  }, {
+    code: "SWEN-331",
+    fullName: "Engineering Secure Software",
+    brief: "Secure software practices are taught and put into practice.",
+    description: "Principles and practices forming the foundation for developing secure software systems. Coverage ranges across the entire development lifecycle: requirements, design, implementation and testing. Emphasis is on practices and patterns that reduce or eliminate security breaches in software intensive systems, and on testing systems to expose security weaknesses.",
+    semester: "Fall 2023",
+    in_progress: true
+  }, {
+    code: "SWEN-340",
+    fullName: "Software Design for Computing Systems",
+    brief: "Deep fundamentals of software are taught with external machines",
+    description: "To design and develop high quality products software engineers need to understand the physical components and systems that are an integral part of these products. This understanding is critical in the fulfillment of non-functional requirements such as performance, reliability and security. This course provides me with hardware, computer architecture, and networking domain specific knowledge. Course programming assignments provide practical experience developing software that interfaces with hardware components and systems.",
+    semester: "Fall 2023",
+    in_progress: true
+  }
 ];
 
 export const EXPERIENCES: interfaces.Experience[] = [
@@ -105,16 +133,76 @@ export const PROJECTS: interfaces.Project[] = [
   {
     name: "Case Compass",
     company: 0,
-    description: "An eviction case tracker for tenants, landlords and lawers.",
+    description: "An eviction case tracker for tenants, landlords and lawyers.",
     images: [
       {
-        source: "/assets/images/projects/case_compass/case_compass_homepage.png",
+        source: ccHomePage,
         caption: "Home screen that displays all cases placed into boxes based on their current status."
       }, {
-        source: "/assets/images/projects/case_compass/case_compass_intake_forms.png",
-        caption: "List of all intake forms submitted and their status (Awaiting Changes, Awaiting Review, Requires Fees). "
+        source: ccBilling,
+        caption: "List of cases and their bills that are pending to be paid. Marking as paid on here changes status."
+      }, {
+        source: ccTimeline,
+        caption: "Timeline of case that lawer progresses manually. Files are also uploaded here."
       }
     ],
     tools: ["Angular", "TypeScript", "Sequelize", "Node", "Git", "Version Control"]
+  }, {
+    name: "Patient Tracker",
+    company: 1,
+    description: "A patient tracker app developed for neurosurgeons to track patients coming in. Brain scans are uploaded and saved to their specific patient and displayed on a patient's profile. Users can also leave comments on patient's profile.",
+    images: [
+      {
+        source: ptPatientList,
+        caption: "Complete list of patients uploaded to software."
+      }, {
+        source: ptBrainScan,
+        caption: "Uploading brain scan for patient form."
+      }, {
+        source: ptPatientProfile,
+        caption: "Profile for patient with all relevant information."
+      }
+    ],
+    tools: ["Vue 3", "Typescript", "npm", "Git", "Version Control"]
+  }, {
+    name: "Razak",
+    company: 0,
+    description: "This project is for a construction managing company made for employees to click in, clock out and track their hours as well as how much they will get paid. This is also for admins to track workers' time-off cards and when they are available and not.",
+    images: [
+      {
+        source: rTimecard,
+        caption: "Timecard for worker to track how much they worked in week selected."
+      }, {
+        source: rCreateProject,
+        caption: "Modal form for admins to create a project."
+      }, {
+        source: rTeamAndCost,
+        caption: "This page allows workers to see their team and how much of a budget they have."
+      }
+    ],
+    tools: ["Angular", "TypeScript", "Sequelize", "Node", "Git", "Version Control"]
+  }, {
+    name: "K.M. Davies",
+    company: 0,
+    description: "An apple distributor required an application for tracking the apples being sent in from farms. It had to connect to their apple density machine and upload the data being processed by that machine. The apple's different attributes have fields and are saved to the companies database rather than our own custom one.",
+    images: [
+      {
+        source: kmHomePage,
+        caption: "Home page that displays all recent apple density tests."
+      }, {
+        source: kmNewTest,
+        caption: "Form for creating a new apple density test."
+      }, {
+        source: kmReporting,
+        caption: "Search for tests based on certain parameters"
+      }, {
+        source: kmAddlTests,
+        caption: "Additional attributes for apples based on tests separate from external machine."
+      }, {
+        source: kmDefects,
+        caption: "Defects in apples that can be chacked & flagged."
+      }
+    ], 
+    tools: ["Angular", "TypeScript", "Node", "Git", "Version Control"]
   }
 ]
