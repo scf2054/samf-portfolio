@@ -1,4 +1,5 @@
 import * as interfaces from "../db/interfaces";
+import webCheckers from "/src/assets/images/projects/web_checkers/WebCheckers.png";
 
 export const SKILLS: string[] = [
   "Javascript",
@@ -57,7 +58,7 @@ export const COURSES: interfaces.Course[] = [
     brief: "A term-long team project using Java Spark was implemented to demonstrate software engineering aspects learned.",
     description: "An introductory course in software engineering, emphasizing the organizational aspects of software development and software design and implementation by individuals and small teams within a process/product framework. Topics include the software lifecycle, software design, user interface issues, specification and implementation of components, assessing design quality, design reviews and code inspections, software testing, basic support tools, technical communications and system documentation, team-based development. A term-long, team-based project done in a studio format is used to reinforce concepts presented in class.",
     semester: "Fall 2021",
-    img: "/src/assets/images/projects/web_checkers/WebCheckers.png"
+    img: webCheckers
   } // TODO: add more
 ];
 
