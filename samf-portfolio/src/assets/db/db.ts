@@ -2,7 +2,7 @@ import * as interfaces from "../db/interfaces";
 import webCheckers from "/src/assets/images/projects/web_checkers/WebCheckers.png";
 import roswellLogo from "/src/assets/images/logos/roswell_logo.png";
 import sbuLogo from "/src/assets/images/logos/sbu_logo.png";
-import ritLogo from "/assets/images/logos/rit_logo.png";
+import ritLogo from "/src/assets/images/logos/rit_logo.png";
 
 export const SKILLS: string[] = [
   "Javascript",
