@@ -1,22 +1,26 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import type { ProjectImage } from '@/assets/db/interfaces';
+import ceilingTiles from "/src/assets/images/projects/kevin_guest_house/Ceiling Tile With Pipes.png";
+import flooring from "/src/assets/images/projects/kevin_guest_house/New Flooring.png";
+import fireExtinguisher from "/src/assets/images/projects/kevin_guest_house/Walls Painted Around Fire Extinguisher.png";
+import cabinet from "/src/assets/images/projects/kevin_guest_house/Walls Painted With Closet Door.png";
 
 export default defineComponent({
   name: 'leadership-experience',
   setup() {
     const images: ProjectImage[] = [
       {
-        source: "src/assets/images/projects/kevin_guest_house/Ceiling Tile With Pipes.png",
+        source: ceilingTiles,
         caption: "Ceiling tiles were installed with cut out parts because of pipes going into ceiling."
       }, {
-        source: "src/assets/images/projects/kevin_guest_house/New Flooring.png",
+        source: flooring,
         caption: "Flooring installed with base floor poking out."
       }, {
-        source: "src/assets/images/projects/kevin_guest_house/Walls Painted Around Fire Extinguisher.png",
+        source: fireExtinguisher,
         caption: "Walls painted around fire extinguisher as to not get in the way."
       }, {
-        source: "src/assets/images/projects/kevin_guest_house/Walls Painted With Closet Door.png",
+        source: cabinet,
         caption: "Walls painted around cabinet door."
       }
     ];
