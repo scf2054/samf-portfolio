@@ -34,7 +34,7 @@ export default defineComponent({
   <div class="main-page leadership-main-page">
     <div class="column">
       <div class="row top-row">
-        <div class="panel" style="width: 65%; margin-right: 20px;">
+        <div class="panel desc-panel">
           <h2>Eagle Scout Project</h2>
           <h3 style="color: gray">Refurbishing Laundry Room</h3>
           <div class="description">
@@ -47,7 +47,7 @@ export default defineComponent({
             hospital.
           </div>
         </div>
-        <div class="panel column" style="width: 35%; justify-content: space-between;">
+        <div class="panel etc-panel column">
           <h2>May 2019 - October 2019</h2>
           <h3 style="color: gray">Roswell Park, Buffalo, NY</h3>
           <span>- Placed new floor tiles</span>
@@ -56,7 +56,8 @@ export default defineComponent({
         </div>
       </div>
       <div class="panel image-panel">
-        <div class="image-holder" v-for="(image, index) of images">
+        <div class="image-holder" v-for="(image, index) of images"
+          :class="{ 'wrap': index % 2 == 1, 'wrap-reverse': index % 2 == 0 }">
           <span class="caption" v-if="index % 2 == 1" style="text-align: right; margin-left: auto">{{ image.caption
           }}</span>
           <img class="image" :src="image.source">
@@ -69,6 +70,18 @@ export default defineComponent({
 <style posted>
 .leadership-main-page {
   .column {
+    .top-row {
+      .desc-panel {
+        width: 65%;
+        margin-right: 20px;
+      }
+
+      .etc-panel {
+        width: 35%;
+        justify-content: space-between;
+      }
+    }
+
     .panel {
       height: auto;
 
@@ -106,6 +119,78 @@ export default defineComponent({
       width: 100%;
       max-width: 800px;
       margin: 20px auto 0 auto;
+    }
+  }
+
+  .wrap {
+    flex-wrap: wrap;
+
+    .caption {
+      text-align: right !important;
+    }
+  }
+
+  .wrap-reverse {
+    flex-wrap: wrap-reverse;
+
+    .caption {
+      text-align: left !important;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .leadership-main-page {
+    .column {
+
+      .top-row {
+        flex-direction: column;
+
+        .desc-panel {
+          margin: 0;
+          width: 100%;
+        }
+
+        .etc-panel {
+          width: 70%;
+        }
+
+        .panel {
+          margin-bottom: 20px;
+        }
+      }
+
+      .image-panel {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .leadership-main-page {
+    .column {
+      .top-row {
+        .etc-panel {
+          width: 100%;
+        }
+      }
+
+      .image-panel {
+
+        .image-holder {
+          flex-direction: column;
+
+          .caption {
+            width: 70%;
+            margin: 0;
+          }
+
+          .image {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }

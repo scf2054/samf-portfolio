@@ -360,9 +360,37 @@ h2 {
       }
     }
   }
+}
 
-  .profile-img {
-    align-self: flex-start !important;
+@media screen and (max-width: 430px) {
+  .tiger-img {
+    display: none;
+  }
+
+  .personal-panel {
+    .column {
+      :is(span) {
+        text-wrap: wrap;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 406px) {
+  .personal-panel {
+    .column {
+      .name {
+        .pronouns {
+          margin: 0;
+        }
+      }
+      .row {
+        flex-direction: column;
+        :is(span) {
+          text-align: left;
+        }
+      }
+    }
   }
 }
 </style>

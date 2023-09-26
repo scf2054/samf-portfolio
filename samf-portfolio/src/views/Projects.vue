@@ -43,13 +43,15 @@ export default defineComponent({
           <img class="company-logo" :src="companies[project.company].logo">
         </div>
         <div class="subheader">
-          Tools: <span class="tool" v-for="tool of project.tools">{{ tool }}</span>
+          <span style="margin-right: 20px">Tools:</span><span class="tool" v-for="tool of project.tools">{{ tool }}</span>
         </div>
         <div class="body">
           {{ project.description }}
           <div class="images">
-            <div class="image-holder" v-for="(image, image_index) of project.images">
-              <span class="caption" v-if="image_index % 2 == 1" style="text-align: right;">{{ image.caption }}</span>
+            <h3>What I Worked On:</h3>
+            <div class="image-holder" v-for="(image, image_index) of project.images"
+              :class="{ 'wrap': image_index % 2 == 1, 'wrap-reverse': image_index % 2 == 0 }">
+              <span class="caption" v-if="image_index % 2 == 1">{{ image.caption }}</span>
               <img class="image" :src="image.source">
               <span class="caption" v-if="image_index % 2 == 0">{{ image.caption }}</span>
             </div>
@@ -87,6 +89,7 @@ export default defineComponent({
             text-overflow: ellipsis;
             text-wrap: nowrap;
             display: block;
+            color: var(--color-2-dark)
           }
         }
 
@@ -100,9 +103,10 @@ export default defineComponent({
         font-size: 1.2rem;
         font-weight: 600;
         margin-top: 15px;
+        flex-wrap: wrap;
 
         .tool {
-          margin-left: 20px;
+          margin-right: 20px;
           color: gray;
         }
       }
@@ -140,5 +144,64 @@ export default defineComponent({
       }
     }
   }
+
+  .wrap {
+    flex-wrap: wrap;
+
+    .caption {
+      text-align: left !important;
+    }
+  }
+
+  .wrap-reverse {
+    flex-wrap: wrap-reverse;
+
+    .caption {
+      text-align: right !important;
+    }
+  }
 }
-</style>
+
+@media screen and (max-width: 814px) {
+  .projects-main-page {
+    .column {
+      .panel {
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .body {
+          .images {
+            .image-holder {
+              flex-direction: column;
+
+              .image {
+                width: 100%;
+              }
+
+              .caption {
+                width: 70%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .projects-main-page {
+    .column {
+      .panel {
+        .header {
+          .company-logo {
+            height: auto;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}</style>

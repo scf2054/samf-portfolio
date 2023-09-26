@@ -194,10 +194,53 @@ export default defineComponent({
           width: max-content;
           font-size: 1.4em;
 
+          .project-holder {
+            .project {
+              text-decoration: underline;
+            }
+          }
+
           .project-holder:hover {
             cursor: pointer;
             color: #43637091;
             transition: 0.2s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 707px) {
+  .experiences-main-page {
+    .column {
+      .panel {
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+
+          .title {
+            height: initial;
+            width: 100%;
+
+            .title-text {
+              width: 100%;
+              text-wrap: wrap;
+            }
+
+            .logo {
+              margin-bottom: 15px;
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+
+        .subheader {
+          flex-direction: column;
+
+          :is(h3) {
+            margin: 0 0 6px 0;
           }
         }
       }
