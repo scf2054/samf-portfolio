@@ -14,14 +14,14 @@ export default defineComponent({
   setup() {
     const links: Ref<Link[]> = ref([
       {
-        image: 'src/assets/images/logos/Gmail.png',
+        image: '/src/assets/images/logos/Gmail.png',
         link: 'mailto:frosts1125@gmail.com',
         overwrite: 'frosts1125@gmail.com'
       }, {
-        image: 'src/assets/images/logos/GitHub.png',
+        image: '/src/assets/images/logos/GitHub.png',
         link: 'https://github.com/scf2054'
       }, {
-        image: 'src/assets/images/logos/LinkedIn.png',
+        image: '/src/assets/images/logos/LinkedIn.png',
         link: 'https://www.linkedin.com/in/samuel-frost-b681531b4/',
         overwrite: 'https://www.linkedin.com/sam-frost'
       }
