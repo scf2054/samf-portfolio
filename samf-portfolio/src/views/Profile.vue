@@ -39,16 +39,16 @@ export default defineComponent({
               <span class="year light-color-value">4th Year</span>
             </div>
             <div class="row">
-              <span class="expected-graduation-title">Expected Graduation:</span>
+              <span class="expected-graduation-title">Expected Graduation Date:</span>
               <span class="expected-graduation light-color-value">May 2025</span>
             </div>
             <div class="row">
               <span class="gpa-title">GPA:</span>
-              <span class="gpa light-color-value">3.5</span>
+              <span class="gpa light-color-value">3.6</span>
             </div>
             <div class="row">
-              <span class="available-title">Available:</span>
-              <span class="available light-color-value">January - August 2024</span>
+              <span class="available-title">Co-op Availability:</span>
+              <span class="available light-color-value">May - August 2024</span>
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default defineComponent({
           </div>
         </div>
         <div class="panel courses-panel">
-          <h2>Courses Taken:</h2>
+          <h2>Relevant Courses Taken:</h2>
           <div class="blocks-holder">
             <div class="block" v-for="(course, index) of courses" @click="clickCourse(index)">
               <div class="header">

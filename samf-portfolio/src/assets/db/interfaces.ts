@@ -20,8 +20,7 @@ export interface Experience {
   end_date?: Date,
   brief: string,
   description: string,
-  keywords?: KeyWord[],
-  projects?: number[]
+  keywords?: KeyWord[]
 }
 
 export interface KeyWord {

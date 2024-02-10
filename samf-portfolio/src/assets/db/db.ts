@@ -2,6 +2,7 @@ import * as interfaces from "../db/interfaces";
 import roswellLogo from "/src/assets/images/logos/roswell_logo.png";
 import sbuLogo from "/src/assets/images/logos/sbu_logo.png";
 import ritLogo from "/src/assets/images/logos/rit_logo.png";
+import precisionLogo from "/src/assets/images/logos/precision_logo.png"
 import ccHomePage from "/src/assets/images/projects/case_compass/case_compass_homepage.png";
 import ccBilling from "/src/assets/images/projects/case_compass/case_compass_billing.png";
 import ccTimeline from "/src/assets/images/projects/case_compass/case_compass_timeline.png";
@@ -19,17 +20,15 @@ import kmAddlTests from "/src/assets/images/projects/km_davies/km_addl_tests.png
 import kmDefects from "/src/assets/images/projects/km_davies/km_defects.png";
 
 export const SKILLS: string[] = [
-  "Javascript",
-  "Typescript",
-  "Version Control",
+  "Javascript/Typescript",
   "Git", "Angular",
   "Vue", "Java",
-  "Python",
-  "npm",
-  "SQL",
+  "Python", "SQL",
   "Sequelize",
+  "React",
+  "C", "Robot",
   "Node.js",
-  "C"
+  "Sequelize"
 ];
 
 export const COURSES: interfaces.Course[] = [
@@ -81,15 +80,13 @@ export const COURSES: interfaces.Course[] = [
     fullName: "Engineering Secure Software",
     brief: "Secure software practices are taught and put into practice.",
     description: "Principles and practices forming the foundation for developing secure software systems. Coverage ranges across the entire development lifecycle: requirements, design, implementation and testing. Emphasis is on practices and patterns that reduce or eliminate security breaches in software intensive systems, and on testing systems to expose security weaknesses.",
-    semester: "Fall 2023",
-    in_progress: true
+    semester: "Fall 2023"
   }, {
     code: "SWEN-340",
     fullName: "Software Design for Computing Systems",
     brief: "Deep fundamentals of software are taught with external machines",
     description: "To design and develop high quality products software engineers need to understand the physical components and systems that are an integral part of these products. This understanding is critical in the fulfillment of non-functional requirements such as performance, reliability and security. This course provides me with hardware, computer architecture, and networking domain specific knowledge. Course programming assignments provide practical experience developing software that interfaces with hardware components and systems.",
-    semester: "Fall 2023",
-    in_progress: true
+    semester: "Fall 2023"
   }
 ];
 
@@ -103,8 +100,7 @@ export const EXPERIENCES: interfaces.Experience[] = [
     start_date: new Date("5/23/2022"),
     end_date: new Date("1/13/2023"),
     brief: "Full-Stack start-up, contractor co-op that uses Angular, Node and Sequelize.",
-    description: "I worked alongside other developers making full-stack websites for third-party companies who paid for software for their businesses. We held scrum meetings every morning where we discussed what everyone completed, are going to complete and what roadblocks are going to be in the way. Customers would occasionally attend these scrum meetings where I could speak with them and ask clarifying questions about certain aspects of the software. We also had direct lines of communication through our Slack channel where we can message clients directly.",
-    projects: []
+    description: "I worked alongside other developers making full-stack websites for third-party companies who paid for software for their businesses. We held scrum meetings every morning where we discussed what everyone completed, are going to complete and what roadblocks are going to be in the way. Customers would occasionally attend these scrum meetings where I could speak with them and ask clarifying questions about certain aspects of the software. We also had direct lines of communication through our Slack channel where we can message clients directly."
   }, {
     title: "IT Intern (Software Engineering)",
     company: "Roswell Park Cancer Institute",
@@ -114,8 +110,7 @@ export const EXPERIENCES: interfaces.Experience[] = [
     start_date: new Date("5/23/2023"),
     end_date: new Date("8/17/2023"),
     brief: "Full-stack internship developing Vue3 software for neurosurgeons who worked for the hospital.",
-    description: "The IT department at Roswell Park Cancer Institute had a sector for software developers, which is where I worked. I developed alongside two other developers completing the same project that I was doing. We were a non-profit working directly with the hospital to develop software for the doctors if they request such. We held scrum meetings if necessary to continue forth with the project and if we were having security issues with the hospital itself.",
-    projects: []
+    description: "The IT department at Roswell Park Cancer Institute had a sector for software developers, which is where I worked. I developed alongside two other developers completing the same project that I was doing. We were a non-profit working directly with the hospital to develop software for the doctors if they request such. We held scrum meetings if necessary to continue forth with the project and if we were having security issues with the hospital itself."
   }, {
     title: "Course Assistant for GCIS-124/GCIS-127",
     company: "Rochester Institute of Technology",
@@ -123,9 +118,19 @@ export const EXPERIENCES: interfaces.Experience[] = [
     website: "https://www.rit.edu/",
     logo: ritLogo,
     start_date: new Date("1/17/2022"),
+    end_date: new Date("12/8/2023"),
     brief: "Graded coding homeworks, exams, and quizzes in Java and Python.",
     description: "I worked as a course assistant for introductory programming courses for freshman students. GCIS-124 is similar, if not exactly like SWEN-124 which I have taken previosuly. GCIS-127 is a course for transfer students with presumptions that they know a majority of the content being taught. I would attend class and help students catch up with the lecture if they fall behind due to bugs in their software. Outside of class, I would hold office hours where students can show up and ask questions on homework or if they have general inquiries about the content being taught. I would also grade the students' homeowork assignments, quizzes, class activies, and exams based on the effort and quality they put into their code.",
     keywords: [{ word: "SWEN-124", route_name: "Education", params: { 'courseIndex': 2 } }]
+  }, {
+    title: "Software Engineering Co-op",
+    company: "Precision Optical Technologies",
+    location: "Rochester, NY",
+    website: "https://www.precisionot.com/",
+    logo: precisionLogo,
+    start_date: new Date("1/8/2024"),
+    brief: "Front-end development and automated testing for an interface for managing transceivers.",
+    description: "I was tasked with creating much-needed automated tests for an application that was made to manage transceivers. This application included site management which held a number of OLT's who hold different ports with ONU's being managed within those. The automated tests that I wrote were done using a Python framework called \"Robot\" which walks through the interface by command and executes certain actions. These automated tests included deleting ONU's and uploading new OLT files to restore these ONU's. I reworked the notification feature of the application so that notification messages take place in one part of the application as opposed to throughout the project."
   }
 ];
 
