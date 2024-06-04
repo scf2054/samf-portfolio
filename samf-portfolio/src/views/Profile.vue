@@ -36,7 +36,7 @@ export default defineComponent({
                 src="/src/assets/images/logos/rit_tiger.png"></span>
             <div class="row">
               <span class="major">B.S. Software Engineering</span>
-              <span class="year light-color-value">4th Year</span>
+              <span class="year light-color-value">5th Year</span>
             </div>
             <div class="row">
               <span class="expected-graduation-title">Expected Graduation Date:</span>
@@ -47,8 +47,8 @@ export default defineComponent({
               <span class="gpa light-color-value">3.6</span>
             </div>
             <div class="row">
-              <span class="available-title">Co-op Availability:</span>
-              <span class="available light-color-value">May - August 2024</span>
+              <span class="available-title">Availability:</span>
+              <span class="available light-color-value">May 2025</span>
             </div>
           </div>
         </div>
