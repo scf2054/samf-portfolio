@@ -48,7 +48,7 @@ export default defineComponent({
             </div>
             <div class="row">
               <span class="available-title">Availability:</span>
-              <span class="available light-color-value">May 2025</span>
+              <span class="available light-color-value">June 2025</span>
             </div>
           </div>
         </div>

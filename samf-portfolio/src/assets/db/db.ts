@@ -20,15 +20,14 @@ import kmAddlTests from "/src/assets/images/projects/km_davies/km_addl_tests.png
 import kmDefects from "/src/assets/images/projects/km_davies/km_defects.png";
 
 export const SKILLS: string[] = [
-  "Javascript/Typescript",
+  "Javascript", "Typescript",
   "Git", "Angular",
   "Vue", "Java",
   "Python", "SQL",
   "Sequelize",
-  "React",
-  "C", "Robot",
+  "React", "Robot Framework",
   "Node.js",
-  "Sequelize"
+  "Sequelize", "PHP", "Version Control", "Agile", "Scrum"
 ];
 
 export const COURSES: interfaces.Course[] = [
@@ -129,6 +128,7 @@ export const EXPERIENCES: interfaces.Experience[] = [
     website: "https://www.precisionot.com/",
     logo: precisionLogo,
     start_date: new Date("1/8/2024"),
+    end_date: new Date("8/16/2024"),
     brief: "Front-end development and automated testing for an interface for managing transceivers.",
     description: "I was tasked with creating much-needed automated tests for an application that was made to manage transceivers. This application included site management which held a number of OLT's who hold different ports with ONU's being managed within those. The automated tests that I wrote were done using a Python framework called \"Robot\" which walks through the interface by command and executes certain actions. These automated tests included deleting ONU's and uploading new OLT files to restore these ONU's. I reworked the notification feature of the application so that notification messages take place in one part of the application as opposed to throughout the project."
   }
